@@ -1,0 +1,36 @@
+:root {
+    --primaryGreen: rgba(107, 213, 163, 0.8);
+    --primaryOrange: rgb(255, 164, 66);
+}
+
+.primeBackground {
+    background-image: url("../images/primaryBackground.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    backdrop-filter: grayscale(10%);
+}
+
+.backgoundFilter{
+    background-color: rgba(211, 211, 211, 0.283);
+}
+
+.primaryFont {
+    font-family: 'Leckerli One', cursive;
+}
+
+.loginBox {
+    background-color: var(--primaryGreen);
+    margin: 50px;
+    padding: 20px;
+    border-radius: 19px;
+    border: 2px black solid;
+}
+
+.primaryBtn {
+    background-color: var(--primaryOrange);
+    color: white;
+    border-radius: 19px;
+}
+
