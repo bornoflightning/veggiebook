@@ -1,0 +1,23 @@
+{
+  "name": "veggiebook",
+  "version": "1.0.0",
+  "description": "the best place to buy your veggies locally",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bornoflightning/veggiebook.git"
+  },
+  "author": "Victor E",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bornoflightning/veggiebook/issues"
+  },
+  "homepage": "https://github.com/bornoflightning/veggiebook#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
