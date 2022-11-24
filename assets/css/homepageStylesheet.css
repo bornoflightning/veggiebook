@@ -1,0 +1,48 @@
+:root {
+    --primaryGreen: rgba(107, 213, 163, 0.8);
+    --primaryOrange: rgb(255, 164, 66);
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.primeBackground {
+    background-image: url("../images/primaryBackground.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.backgoundFilter{
+    background-color: rgba(162, 162, 162, 0.4);
+    height: 100vh;
+
+}
+
+.primaryFont {
+    font-family: 'Leckerli One', cursive;
+}
+
+.loginBox {
+    background-color: var(--primaryGreen);
+    margin: 50px;
+    padding: 20px;
+    border-radius: 19px;
+    border: 2px black solid;
+}
+
+.primaryBtn {
+    background-color: var(--primaryOrange);
+    color: white;
+    border-radius: 19px;
+}
+
+.signUpBtn, .loginBtn {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
