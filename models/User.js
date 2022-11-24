@@ -45,7 +45,7 @@ User.init(
       allowNull: false
     },
     //Should only be able to buy and sell based on corresponding zipcode or city(?)
-    location: {
+    user_location: {
       type: DataTypes.STRING,
       allowNull: false
     },

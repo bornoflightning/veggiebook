@@ -33,14 +33,11 @@ Product.init(
       isNumeric: true
     }
   },
-
-  category_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: `category`,
-      key: `id`
-    }
-  }
+  date_posted: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: DataTypes.NOW,
+  },
   },
   {
     sequelize,
