@@ -30,10 +30,22 @@
 
     <main class="primeBackground">
         <div class="backgoundFilter">
-            <div class="d-flex flex-row justify-content-around">
-                <div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2">
-                    <h2 class="primaryFont">Hi [USER NAME GOES HERE]!</h2>
-                    <p class="form-control text-center gap-2">[USER EMAIL GOES HERE]</p>
+            <div class="d-flex flex-row justify-content-around row">
+                <div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2 col-3">
+                    <h2 class="primaryFont">[GROWER USERNAME]</h2>
+                    <!-- Need to make an {{#if}} so it stores the past user description -->
+                    <form class="d-flex flex-column align-items-center">
+                        <input type="text" for="userDesc" id="userDesc" placeholder="Tell us about your farm!" class="form-control text-center gap-2">
+                        <button type="submit" class="btn btn-dark primaryBtn">Save Description</button>
+                    </form>
+                </div>
+                <div id="buyerSection" class="d-flex flex-column align-items-center card loginBox col-7">
+                    <h2 class="primaryFont">Store</h2>
+                    <div class="row">
+                        <p class="3">Carrots</p>
+                        <p class="2">x{Amount}</p>
+                        <button></button>
+                    </div>
                 </div>
             </div>
         </div>
