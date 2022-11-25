@@ -1,0 +1,16 @@
+[
+  {
+    "user_name": "Sal",
+    "email": "sal@hotmail.com",
+    "password": "password12345",
+    "is_grower": "false",
+    "location": 80015
+  },
+  {
+    "user_name": "Bob",
+    "email": "bross@email.com",
+    "password": "password12345",
+    "is_grower": "true",
+    "location": 80030
+  }
+]
