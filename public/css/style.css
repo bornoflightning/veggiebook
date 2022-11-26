@@ -8,8 +8,15 @@ input {
     margin-bottom: 10px;
 }
 
+.navBtn {
+    display: inline;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .primeBackground {
-    background-image: url("../images/primaryBackground.jpg");
+    background-image: url("../../assets/images/primaryBackground.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,6 +36,14 @@ input {
 .loginBox {
     background-color: var(--primaryGreen);
     margin: 50px;
+    padding: 20px;
+    border-radius: 19px;
+    border: 2px black solid;
+}
+
+.secondaryBox {
+    background-color: rgba(162, 162, 162, 0.7);    
+    margin: 20px;
     padding: 20px;
     border-radius: 19px;
     border: 2px black solid;
