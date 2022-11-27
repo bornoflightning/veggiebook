@@ -27,20 +27,27 @@
     <main class="primeBackground">
         <div class="backgoundFilter">
             <div class="d-flex flex-row justify-content-around">
+
+                <!-- Grower Section -->
                 <div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2">
                     <h2 class="primaryFont">I'm a Grower</h2>
-                    <form class="d-flex flex-column align-items-center">
+
+                    <!-- Grower Form -->
+                    <form class="d-flex flex-column align-items-center" action="/home" method="post">
                         <input type="text" for="username" id="usernameLogin" placeholder="Username" class="form-control text-center gap-2">
                         <input type="password" for="password" id="passwordLogin" placeholder="Password" class="form-control text-center gap-2">
-                        <button type="submit" class="btn btn-dark primaryBtn">Login</button>
+                        <button type="submit" class="btn btn-dark primaryBtn" name="grower">Login</button>
                     </form>
                 </div>
+
+                <!-- Buyer Section -->
                 <div id="buyerSection" class="d-flex flex-column align-items-center card loginBox">
                     <h2 class="primaryFont">I'm a Buyer</h2>
-                    <form class="d-flex flex-column align-items-center">
+                    <!-- Buyer Form -->
+                    <form class="d-flex flex-column align-items-center" action="/home" method="post">
                         <input type="text" for="username" id="usernameLogin" placeholder="Username" class="form-control text-center">
                         <input type="password" for="password" id="passwordLogin" placeholder="Password" class="form-control text-center">
-                        <button type="submit" class="btn btn-dark primaryBtn">Login</button>
+                        <button type="submit" class="btn btn-dark primaryBtn" name="buyer">Login</button>
                     </form>
                 </div>
             </div>
@@ -50,7 +57,10 @@
                         <h5 class="primaryFont">Need an account?</h5>
                     </div>
                     <div class="row">
-                        <button class="btn btn-dark primaryBtn signUpBtn"><a href="" class="text-reset text-decoration-none">Sign Up!</a></button>
+                        <!-- Sign up Section -->
+                        <form action="/home" method="post" >
+                            <button class="btn btn-dark primaryBtn signUpBtn" name="sign-up" ><a href="" class="text-reset text-decoration-none">Sign Up!</a></button>
+                        </form>
                     </div>
                 </div>
             </div>

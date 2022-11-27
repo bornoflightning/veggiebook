@@ -1,5 +1,7 @@
 const User = require('./User');
-const Product = require(`./Product`)
+const Product = require(`./Product`);
+const Comment = require('./Comment');
+const Location = require('./Location');
 
 User.hasMany(Product,{
   foreignKey: 'user_id',
@@ -9,9 +11,9 @@ User.hasMany(Comment,{
     foreignKey: `user_id`,
     onDelete: `CASCADE`
 });
-User.belongsTo(this.Location,{
-    as: `user_location`
-});
+ User.belongsTo(Location,{
+     as: `user_location`
+ });
 Product.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: `CASCADE`
