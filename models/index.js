@@ -1,5 +1,7 @@
 const User = require('./User');
-const Product = require(`./Product`)
+const Product = require(`./Product`);
+const Description = require('./Description');
+const { useCLS } = require('sequelize');
 
 User.hasMany(Product, {
     foreignKey: 'user_id',
@@ -26,6 +28,14 @@ Location.belongsToMany(User, {
         unique: false
     },
     as: 'location_name' && 'id'
+});
+Description.belongsTo(User,{
+    foreignKey: 'user_id',
+    onDelete: `CASCADE`
+});
+User.hasMany(Description, {
+    foreignKey: `user_id`,
+    onDelete: `CASCADE`
 });
 
 module.exports = { User, Product, Comment, Location };
