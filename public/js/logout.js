@@ -1,6 +1,7 @@
 //NEED TO ADJUST TO FIT OUR APP
 
 const logout = async () => {
+  // Need to adjust to fit route map.
   const response = await fetch('/api/users/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
