@@ -1,8 +1,8 @@
 const User = require('./User');
 const Product = require(`./Product`);
 const Description = require('./Description');
-const { useCLS } = require('sequelize');
-
+const Location = require( `./Location`)
+const Comment = require(`./Comment`)
 User.hasMany(Product, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
