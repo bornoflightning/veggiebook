@@ -6,8 +6,9 @@ const signupFormHandler = async (event) => {
     const password = document.querySelector('#passwordSignup').value.trim();
     const is_grower = document.querySelector('#isGrower').value;
     const location = document.querySelector('#location').value.trim();
+    const userDesc = document.querySelector('#userDesc').value.trim();
 
-    if (user_name && email && password && is_grower && location) {
+    if (user_name && email && password && is_grower && location && userDesc) {
       const response = await fetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({ user_name, email, password, is_grower, location }),
