@@ -13,7 +13,7 @@ class User extends Model {
 User.init(
   {
     
-    user_id:{
+    id:{
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -46,7 +46,7 @@ User.init(
     },
     //Should only be able to buy and sell based on corresponding zipcode or city(?)
     location: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
 // Should I include messaging, (if)producing or not producing(afk)?
