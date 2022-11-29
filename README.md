@@ -29,7 +29,7 @@ See below for a full demo or click here to see the live [application](siteUrlGoe
 ## Credits
 
 VeggieBook collaborators: 
-- Evan Hughes; GitHub: []()
+- Evan Hughes; GitHub: [evanhu96](https://github.com/evanhu96)
 - Josh Delmonte; GitHub: [joshdelmonte](https://github.com/joshdelmonte)
 - Reed Dahltorp; GitHub: [rdahltorp](https://github.com/rdahltorp)
 - Victor Escarcega; GitHub: [bornoflightning](https://github.com/bornoflightning)
