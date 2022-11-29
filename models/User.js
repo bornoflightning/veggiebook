@@ -50,6 +50,10 @@ User.init(
       allowNull: false
     },
 // Should I include messaging, (if)producing or not producing(afk)?
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     hooks: {
