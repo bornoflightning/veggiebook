@@ -29,7 +29,7 @@
             <div class="d-flex flex-row justify-content-around">
                 <div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2">
                     <h2 class="primaryFont">I'm a Grower</h2>
-                    <form class="d-flex flex-column align-items-center">
+                    <form class="d-flex flex-column align-items-center loginForm">
                         <input type="text" for="username" id="usernameLogin" placeholder="Username" class="form-control text-center gap-2">
                         <input type="password" for="password" id="passwordLogin" placeholder="Password" class="form-control text-center gap-2">
                         <button type="submit" class="btn btn-dark primaryBtn">Login</button>
@@ -37,9 +37,9 @@
                 </div>
                 <div id="buyerSection" class="d-flex flex-column align-items-center card loginBox">
                     <h2 class="primaryFont">I'm a Buyer</h2>
-                    <form class="d-flex flex-column align-items-center">
-                        <input type="text" for="username" id="usernameLogin" placeholder="Username" class="form-control text-center">
-                        <input type="password" for="password" id="passwordLogin" placeholder="Password" class="form-control text-center">
+                    <form class="d-flex flex-column align-items-center buyerLoginForm">
+                        <input type="text" for="username" id="usernameLoginBuyer" placeholder="Username" class="form-control text-center">
+                        <input type="password" for="password" id="passwordLoginBuyer" placeholder="Password" class="form-control text-center">
                         <button type="submit" class="btn btn-dark primaryBtn">Login</button>
                     </form>
                 </div>
@@ -56,5 +56,6 @@
             </div>
         </div>
     </main>
+    <script src="../../public/js/login.js" ></script>
 </body>
 </html>
