@@ -4,7 +4,10 @@
   "description": "The best place to buy and sale your vegetables.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "watch": "nodemon main.js",
+    "quicksave": "git add . && git commit -m \"quicksave\" && git push"
   },
   "repository": {
     "type": "git",

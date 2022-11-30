@@ -52,7 +52,8 @@ User.init(
 // Should I include messaging, (if)producing or not producing(afk)?
     description: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      len: [1-500]
     }
   },
   {

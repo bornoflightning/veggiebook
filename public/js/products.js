@@ -8,7 +8,8 @@ const newProdHandler = async (event) => {
   console.log(prodName, prodPrice, prodStock);
 
   if (prodName && prodPrice && prodStock) {
-    //Need to update based on site maps  
+    //Need to update based on site maps 
+    //might want to make addition 
     const response = await fetch('/api/users/dashboard', {
           method: 'POST',
           body: JSON.stringify({ prodName, prodPrice, prodStock }),
