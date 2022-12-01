@@ -9,7 +9,7 @@ const newProdHandler = async (event) => {
 
   if (product_name && price && stock) {
     //Need to update based on site maps  
-    const response = await fetch('/profile/', {
+    const response = await fetch('/growerProfile', {
           method: 'POST',
           body: JSON.stringify({ product_name, price, stock }),
           headers: { 'Content-Type': 'application/json' }
@@ -17,7 +17,7 @@ const newProdHandler = async (event) => {
 
       if (response.ok) {
           //Need to update based on site maps  
-          document.location.replace('/profile/');
+          document.location.replace('/growerProfile');
       } else {
           alert(response.statusText)
       }
