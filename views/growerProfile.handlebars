@@ -1,0 +1,48 @@
+<div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2 col-3">
+    <h2 class="primaryFont text-center">hi</h2>
+    <p class="form-control text-center gap-2">email</p>
+    <form class="d-flex flex-column align-items-center">
+        <input type="text" for="userDesc" id="userDesc" placeholder="Tell us about your farm!" class="form-control text-center gap-2">
+        <button type="submit" class="btn btn-dark primaryBtn">Save Description</button>
+    </form>
+</div>
+<div id="buyerSection" class="d-flex flex-column align-items-center justify-content-between card loginBox col-7">
+    <h2 class="primaryFont">Store</h2>
+    <div class="row justify-content-around">
+        <div class="d-flex flex-column align-items-center card secondaryBox gap-2 col-2">
+            <p class="form-control text-center">Kale</p>
+            <p class="form-control text-center">Price</p>
+            <p class="form-control text-center">x{Amount}</p>
+            <button class="btn btn-dark primaryBtn">+</button>
+            <button class="btn btn-dark primaryBtn">-</button>
+            <button class="btn btn-dark primaryBtn delProd">Remove</button>
+
+        </div>
+        <div class="d-flex flex-column align-items-center card secondaryBox gap-2 col-2">
+            <p class="form-control text-center">Basil</p>
+            <p class="form-control text-center">Price</p>
+            <p class="form-control text-center">x{Amount}</p>
+            <button class="btn btn-dark primaryBtn">+</button>
+            <button class="btn btn-dark primaryBtn">-</button>
+            <button class="btn btn-dark primaryBtn">Remove</button>
+
+        </div>
+        <div class="d-flex flex-column align-items-center card secondaryBox gap-2 col-2">
+            <p class="form-control text-center">Apples</p>
+            <p class="form-control text-center">Price</p>
+            <p class="form-control text-center">x{Amount}</p>
+            <button class="btn btn-dark primaryBtn">+</button>
+            <button class="btn btn-dark primaryBtn">-</button>
+            <button class="btn btn-dark primaryBtn">Remove</button>
+
+        </div>
+        <form class="d-flex flex-column align-items-center card secondaryBox gap-2 col-2 newProdForm">
+            <p class="primaryFont text-center">Add a product</p>
+            <input type="text" for="prodName" id="prodName" placeholder="Product Name" class="form-control text-center gap-2">
+            <input type="text" for="prodPrice" id="prodPrice" placeholder="Price" class="form-control text-center gap-2">
+            <input type="text" for="prodStock" id="prodStock" placeholder="Stock" class="form-control text-center gap-2">
+            <button type="submit" class="btn btn-dark primaryBtn signUpBtn">Add</button>
+        </form>
+    </div>
+</div>
+<script src="/js/products.js"></script>

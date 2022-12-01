@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 2 Template!</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Primary Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <title>VeggieBook Login</title>
 </head>
 
 <body>
-  <div class="">
-    <header class="">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Project 2 Template</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+    <header class="bg-success p-2 bg-opacity-75 d-flex justify-content-center">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="primaryFont text-dark text-center">VeggieBook</h1>
+            </div>
+        </div>
     </header>
-    <main class="">
-      <!-- Render the sub layout -->
-      {{{ body }}}
+
+    <main class="primeBackground" >
+        <div class="backgoundFilter">
+            <div class="d-flex flex-row justify-content-around">
+                {{{ body }}}
+            </div>
+        </div>
     </main>
-    <footer>
-      
-    </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
-
 </html>

@@ -2,22 +2,22 @@
 const newProdHandler = async (event) => {
   event.preventDefault();
 
-  const prodName = document.querySelector('#prodName').value.trim();
-  const prodPrice = document.querySelector('#prodPrice').value.trim();
-  const prodStock = document.querySelector('#prodStock').value.trim();
+  const product_name = document.querySelector('#prodName').value.trim();
+  const price = document.querySelector('#prodPrice').value.trim();
+  const stock = document.querySelector('#prodStock').value.trim();
   console.log(prodName, prodPrice, prodStock);
 
-  if (prodName && prodPrice && prodStock) {
+  if (product_name && price && stock) {
     //Need to update based on site maps  
-    const response = await fetch('/api/users/dashboard', {
+    const response = await fetch('/profile/', {
           method: 'POST',
-          body: JSON.stringify({ prodName, prodPrice, prodStock }),
+          body: JSON.stringify({ product_name, price, stock }),
           headers: { 'Content-Type': 'application/json' }
       })
 
       if (response.ok) {
           //Need to update based on site maps  
-          document.location.replace('/api/users/dashboard');
+          document.location.replace('/profile/');
       } else {
           alert(response.statusText)
       }
@@ -27,11 +27,6 @@ const newProdHandler = async (event) => {
 //Need to adjust the location of the click. Should work but need to test
 document.querySelector('.newProdForm').addEventListener('submit', newProdHandler);
 
-//function to get the + button to work
-
-
-//function to get the - button to work 
-
 
 //function to remove product
 // const delPostHandler = async (event) => {
@@ -40,19 +35,15 @@ document.querySelector('.newProdForm').addEventListener('submit', newProdHandler
 //     console.log('You hit the delete button');
 
 //     //replace with proper route of site map
-//     const response = await fetch(`/api/users/dashboard/${id}`, {
+//     const response = await fetch(`/profile/${id}`, {
 //         method: 'DELETE',
 //       });
 
 //       if (response.ok) {
 //         //replace with proper route of site map
-//         document.location.replace('/api/users/dashboard');
+//         document.location.replace('/profile/');
 //     }
 // }
 
-function delPostHandler() {
-  console.log('You hit the delete button');
-}
-
-//Need to adjust the location of the click.
-document.querySelector('.itemWrapper').addEventListener('click', delPostHandler);
+// //Need to adjust the location of the click.
+// document.querySelector('.itemWrapper').addEventListener('click', delPostHandler);

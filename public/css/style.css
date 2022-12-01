@@ -16,11 +16,12 @@ input {
 }
 
 .primeBackground {
-    background-image: url("../../assets/images/primaryBackground.jpg");
+    background-image: url("../images/primaryBackground.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    width: 100%;
 }
 
 .backgoundFilter{
