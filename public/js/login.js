@@ -1,15 +1,14 @@
-//NEED TO ADJUST TO FIT OUR APP
-
 const loginFormHandlerGrower = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
   const user_name = document.querySelector('#usernameLogin').value.trim();
   const password = document.querySelector('#passwordLogin').value.trim();
+  console.log(user_name, password);
 
   if (user_name && password) {
     //Need to adjust the route below based on site map. 
-    const response = await fetch('/api/users/login', {
+    const response = await fetch('/login', {
       method: 'POST',
       body: JSON.stringify({ user_name, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -17,7 +16,9 @@ const loginFormHandlerGrower = async (event) => {
 
     if (response.ok) {
       // Need to adjust the route below based on site map. 
-      document.location.replace('/profile');
+      setTimeout(() => {
+        document.location.replace('/growerProfile');
+      }, 1000);
     } else {
       alert(response.statusText);
     }
@@ -37,7 +38,7 @@ document.querySelector('.loginForm').addEventListener('submit', loginFormHandler
   
     if (user_name && password) {
       //Need to adjust the route below based on site map. 
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/', {
         method: 'POST',
         body: JSON.stringify({ user_name, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -45,7 +46,7 @@ document.querySelector('.loginForm').addEventListener('submit', loginFormHandler
   
       if (response.ok) {
         // Need to adjust the route below based on site map. 
-        //document.location.replace('/profile');
+        document.location.replace('/growerProfile');
       } else {
         alert(response.statusText);
       }

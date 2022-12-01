@@ -1,0 +1,27 @@
+<div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2 col-3">
+    <h2 class="primaryFont text-center">{{user_name}}</h2>
+    <p class="form-control text-center gap-2">{{email}}</p>
+    <p class="form-control text-center gap-2">{{description}}</p>
+</div>
+<div id="buyerSection" class="d-flex flex-column align-items-center justify-content-between card loginBox col-7">
+    <h2 class="primaryFont">Store</h2>
+    <div class="row justify-content-around">
+        {{#if products.length}}
+            {{#each products as |product|}}
+                <div class="d-flex flex-column align-items-center card secondaryBox gap-2 col-4">
+                    <p class="form-control text-center">{{product.product_name}}</p>
+                    <p class="form-control text-center">${{product.price}}</p>
+                    <p class="form-control text-center">x{{product.stock}}</p>
+                </div>
+            {{/each}}
+        {{/if}}
+        <form class="d-flex flex-column align-items-center card secondaryBox gap-2 col-8 newProdForm">
+            <p class="primaryFont text-center">Add a product</p>
+            <input type="text" for="prodName" id="prodName" placeholder="Product Name" class="form-control text-center gap-2">
+            <input type="text" for="prodPrice" id="prodPrice" placeholder="Price" class="form-control text-center gap-2">
+            <input type="text" for="prodStock" id="prodStock" placeholder="Stock" class="form-control text-center gap-2">
+            <button type="submit" class="btn btn-dark primaryBtn signUpBtn">Add</button>
+        </form>
+    </div>
+</div>
+<script src="/js/products.js"></script>
