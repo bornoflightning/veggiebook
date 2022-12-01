@@ -6,7 +6,13 @@ router.get('/', async (req, res) => {
   try {
     res.render('homepage', {
       logged_in: req.session.logged_in,
+      // search: document.getElementById('search').addEventListener('click', function(){
+      //   console.log("Howdie")
+      // })
     });
+    // document.getElementById('search').addEventListener('click', function () {
+    //   console.log("Howdie")
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -27,7 +33,7 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.validatePassword(req.body.password);
-console.log("VALID PASSWORD", validPassword)
+    console.log("VALID PASSWORD", validPassword)
     if (!validPassword) {
       res
         .status(400)
@@ -41,7 +47,7 @@ console.log("VALID PASSWORD", validPassword)
       req.session.is_grower = userData.is_grower;
       //console.log("IM RIGHR HERE", req.session)
       res.json({ user: userData, message: 'You are now logged in!' });
-      
+
     });
 
   } catch (err) {
@@ -49,15 +55,15 @@ console.log("VALID PASSWORD", validPassword)
   }
 });
 
- router.get(`/signup`, async (req,res) => {
+router.get(`/signup`, async (req, res) => {
   try {
     res.render(`signup`)
   } catch (error) {
     res.status(500).json(error)
   }
- })
+})
 
- router.post(`/signup`, async (req, res) => {
+router.post(`/signup`, async (req, res) => {
   console.log(req.body);
   try {
     const userData = await User.create({
@@ -68,15 +74,15 @@ console.log("VALID PASSWORD", validPassword)
       location: req.body.location,
       description: req.body.description,
     })
-    req.session.save(()=>{
+    req.session.save(() => {
       req.session.user_id = userData.id,
-      req.session.user_name = userData.user_name,
-      req.session.logged_in = true,
-      res.status(200).json(userData)
+        req.session.user_name = userData.user_name,
+        req.session.logged_in = true,
+        res.status(200).json(userData)
     })
   } catch (error) {
     res.status(500).json(error)
   }
- })
+})
 
 module.exports = router;

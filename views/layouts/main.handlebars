@@ -29,7 +29,22 @@
             {{/if}}
         </div>
     </header>
-
+ <!-- search bar right align -->
+        <div class="search">
+            <form action="#search">
+                <input type="text"
+                    placeholder="Enter Zipcode"
+                    name="search">
+                <button>
+                    <i class="fa fa-search"
+                        id="search"
+                        style="font-size: 18px;">
+                        Search
+                    </i>
+                </button>
+            </form>
+        </div>
+    </div>
     <main class="primeBackground" >
         <div class="backgoundFilter">
             <div class="d-flex flex-row justify-content-around">
@@ -38,5 +53,9 @@
         </div>
     </main>
     <script src="/js/logout.js"></script>
+     <script>
+        document.getElementById('#search')
+        console.log(document.querySelector('#search'))
+    </script>
 </body>
 </html>
