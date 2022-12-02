@@ -20,11 +20,10 @@ To use the application a user must login or set up an account. Note: if you set 
 
 See below for a full demo or click here to see the live [application](siteUrlGoesHere).
 
-**ADD DEMO/SCREENSHOTS BELOW**
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+   
+![Homepage of VeggieBook](./assets/images/Screen%20Shot%202022-12-01%20at%204.45.43%20PM.png)
+![Grower Profile](./assets/images/GrowerProfile.png)
+    
 
 ## Credits
 
@@ -40,6 +39,7 @@ Technologies used:
 - [Node.js](https://nodejs.org/en/)
 - [MySQL2](https://www.npmjs.com/package/mysql2)
 - [Sequelize](https://www.npmjs.com/package/sequelize)
+- [Zipcode City Distance](https://www.npmjs.com/package/zipcode-city-distance)
 
 
 ## Features
@@ -49,6 +49,5 @@ On Arrival:
 - Sign up new accounts
 
 When logged in: 
-- Growers can add/remove inventory & set prices
-- Users can review grower profiles and email growers directly
+- Growers can add inventory, set prices and stock
 - Users can search for growers in their area by searching for zipcodes 
