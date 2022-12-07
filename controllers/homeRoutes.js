@@ -1,6 +1,10 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const User = require('../models/User');
 const withAuth = require('../utils/auth');
+const zipCodeData = require('zipcode-city-distance');
+
+
+
 
 router.get('/', async (req, res) => {
   try {
@@ -27,7 +31,7 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.validatePassword(req.body.password);
-console.log("VALID PASSWORD", validPassword)
+    console.log("VALID PASSWORD", validPassword)
     if (!validPassword) {
       res
         .status(400)
@@ -41,7 +45,7 @@ console.log("VALID PASSWORD", validPassword)
       req.session.is_grower = userData.is_grower;
       //console.log("IM RIGHR HERE", req.session)
       res.json({ user: userData, message: 'You are now logged in!' });
-      
+
     });
 
   } catch (err) {
@@ -49,15 +53,15 @@ console.log("VALID PASSWORD", validPassword)
   }
 });
 
- router.get(`/signup`, async (req,res) => {
+router.get(`/signup`, async (req, res) => {
   try {
     res.render(`signup`)
   } catch (error) {
     res.status(500).json(error)
   }
- })
+})
 
- router.post(`/signup`, async (req, res) => {
+router.post(`/signup`, async (req, res) => {
   console.log(req.body);
   try {
     const userData = await User.create({
@@ -68,15 +72,63 @@ console.log("VALID PASSWORD", validPassword)
       location: req.body.location,
       description: req.body.description,
     })
-    req.session.save(()=>{
+    req.session.save(() => {
       req.session.user_id = userData.id,
-      req.session.user_name = userData.user_name,
-      req.session.logged_in = true,
-      res.status(200).json(userData)
+        req.session.user_name = userData.user_name,
+        req.session.logged_in = true,
+        res.status(200).json(userData)
     })
   } catch (error) {
     res.status(500).json(error)
   }
- })
+})
 
+//  router.get('/zipcode/:zip', (req, res) => {
+
+//   if (5 > 1) {
+//       res.send({
+//           message: 'completed your request',
+//           zipcode1: 18301,
+//           zipcode2: 18360,
+//           distance: zipCodeData.zipCodeDistance(zip, '18360','M'),
+//       })
+//   } else {
+//       res.send({ error: 'not valid query or zip code not found' })
+//   }
+
+// });
+
+router.get('/searchResults/:zip', async (req, res) => {
+  zipcode = (req.params.zip);
+  try {
+    const userData = await User.findAll({
+      attributes: {
+        exclude: ['password']
+      }
+    })
+    const growerlist = [];
+    for(var i = 0;i<userData.length; i++){
+      let zip = userData[i].location;
+      let zipCodeDistance = zipCodeData.zipCodeDistance(`${zip}`, zipcode,'M');
+      if (zipCodeDistance <50){
+        growerlist.push(userData[i]);
+      }
+    }
+    console.log(growerlist);
+    
+    const growerlist2 = growerlist.get({ plain: true });
+
+    res.render('search', {
+      ...growerlist2,
+      logged_in: true
+    });
+
+    if (!userData) {
+      res.status(404).json({ message: 'No grower within radius!' });
+      return;
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
 module.exports = router;

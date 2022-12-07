@@ -1,6 +1,20 @@
+const searchFormHandler = async (event) => {
+    event.preventDefault();
 
-const origin = '18360';
+    // Collect values from the login form
+    const zipcode = document.querySelector('#searchbar').value.trim();
+    console.log(zipcode);
 
-const destination = '80216';
+    if (zipcode) {
+        //Need to adjust the route below based on site map. 
 
-let zipCodeDistance = zipCodeData.zipCodeDistance(`${origin}`, `${destination}`,'M');
+        // Need to adjust the route below based on site map. 
+        setTimeout(() => {
+            document.location.replace(`/searchResults/:${zipcode}`);
+        }, 1000);
+    } else {
+        alert(response.statusText);
+    }
+
+  }  ;
+document.querySelector('#search').addEventListener('submit', searchFormHandler);

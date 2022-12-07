@@ -1,0 +1,8 @@
+{{#each user as |user| }}
+<div class="d-flex flex-row justify-content-around row">
+    <div id="growerSection" class="d-flex flex-column align-items-center card loginBox gap-2 col-4">
+        <h2 class="primaryFont">{{user.user_name}}</h2>
+        <p class="form-control text-center gap-2">{{user.description}}</p>
+    </div>
+</div>
+{{/each}}
