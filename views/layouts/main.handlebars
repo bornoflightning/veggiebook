@@ -21,7 +21,6 @@
             <div class="col-12">
                 <h1 class="primaryFont text-dark text-center">VeggieBook</h1>
             </div>
-            {{#if logged_in}}
             <form action="#search" id="search">
                 <input type="text"
                     placeholder="Enter Zipcode"
@@ -35,6 +34,7 @@
                     </i>
                 </button>
             </form>
+            {{#if logged_in}}
             <nav class="col-12 text-center">
                 <p id="logout" class="primaryFont text-dark navBtn"><a href="" class="text-reset text-decoration-none">Logout</a></p>
                 <p class="primaryFont text-dark navBtn"><a href="" class="text-reset text-decoration-none">Home</a></p>
