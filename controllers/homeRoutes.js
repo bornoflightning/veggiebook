@@ -1,9 +1,7 @@
 const router = require('express').Router();
-const User = require('../models/User');
 const withAuth = require('../utils/auth');
 const zipCodeData = require('zipcode-city-distance');
-
-
+const { User } = require('../models');
 
 
 router.get('/', async (req, res) => {
@@ -63,6 +61,7 @@ router.get(`/signup`, async (req, res) => {
 
 router.post(`/signup`, async (req, res) => {
   console.log(req.body);
+  console.log('hy');
   try {
     const userData = await User.create({
       user_name: req.body.user_name,
@@ -83,39 +82,35 @@ router.post(`/signup`, async (req, res) => {
   }
 })
 
-//  router.get('/zipcode/:zip', (req, res) => {
 
-//   if (5 > 1) {
-//       res.send({
-//           message: 'completed your request',
-//           zipcode1: 18301,
-//           zipcode2: 18360,
-//           distance: zipCodeData.zipCodeDistance(zip, '18360','M'),
-//       })
-//   } else {
-//       res.send({ error: 'not valid query or zip code not found' })
-//   }
+router.get(`/search`, async (req, res) => {
+  try {
+    res.render(`search`)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
 
-// });
-
-router.get('/searchResults/:zip', async (req, res) => {
-  zipcode = (req.params.zip);
+router.post('/search/:zip', async (req, res) => {
+  zip = (req.params.zip); 
   try {
     const userData = await User.findAll({
       attributes: {
         exclude: ['password']
       }
     })
-    const growerlist = [];
-    for(var i = 0;i<userData.length; i++){
-      let zip = userData[i].location;
+    console.log(userData);
+
+    const growerlist =[]; 
+    for (var i = 0; i  <userData.length; i++){
+      let zipcode = userData[i].location;
       let zipCodeDistance = zipCodeData.zipCodeDistance(`${zip}`, zipcode,'M');
       if (zipCodeDistance <50){
         growerlist.push(userData[i]);
       }
     }
     console.log(growerlist);
-    
+
     const growerlist2 = growerlist.get({ plain: true });
 
     res.render('search', {
@@ -131,4 +126,37 @@ router.get('/searchResults/:zip', async (req, res) => {
     res.status(500).json(err);
   };
 });
+// router.get('/search', async (req, res) => {
+//   zipcode = (req.params.zip);
+//   try {
+//     const userData = await User.findAll({
+//       attributes: {
+//         exclude: ['password']
+//       }
+//     })
+//     const growerlist = [];
+//     for(var i = 0;i<userData.length; i++){
+//       let zip = userData[i].location;
+//       let zipCodeDistance = zipCodeData.zipCodeDistance(`${zip}`, zipcode,'M');
+//       if (zipCodeDistance <50){
+//         growerlist.push(userData[i]);
+//       }
+//     }
+//     console.log(growerlist);
+
+//     const growerlist2 = growerlist.get({ plain: true });
+
+//     res.render('search', {
+//       ...growerlist2,
+//       logged_in: true
+//     });
+
+//     if (!userData) {
+//       res.status(404).json({ message: 'No grower within radius!' });
+//       return;
+//     }
+//   } catch (err) {
+//     res.status(500).json(err);
+//   };
+// });
 module.exports = router;
