@@ -91,8 +91,20 @@ router.get(`/search`, async (req, res) => {
   }
 })
 
-router.post('/search/:zip', async (req, res) => {
-  zip = (req.params.zip); 
+router.get(`/search/:zip1/:zip2`, async (req, res) => {
+  try {
+    res.render(`search`)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+router.post('/search/:zip1/:zip2', async (req, res) => {
+  zip1 = (req.params.zip1);
+  zip2 = (req.params.zip2);
+  zipcode1 = zip1.substr(1);
+  zipcode2 = zip2.substr(1);
+  distance = zipCodeData.zipCodeDistance(zipcode1, zipcode2,'M')
+  console.log(distance);
   try {
     const userData = await User.findAll({
       attributes: {
@@ -100,24 +112,13 @@ router.post('/search/:zip', async (req, res) => {
       }
     })
     console.log(userData);
-
-    const growerlist =[]; 
-    for (var i = 0; i  <userData.length; i++){
-      let zipcode = userData[i].location;
-      let zipCodeDistance = zipCodeData.zipCodeDistance(`${zip}`, zipcode,'M');
-      if (zipCodeDistance <50){
-        growerlist.push(userData[i]);
-      }
-    }
+    const growerlist =[];
     console.log(growerlist);
-
     const growerlist2 = growerlist.get({ plain: true });
-
     res.render('search', {
       ...growerlist2,
       logged_in: true
     });
-
     if (!userData) {
       res.status(404).json({ message: 'No grower within radius!' });
       return;
@@ -126,37 +127,4 @@ router.post('/search/:zip', async (req, res) => {
     res.status(500).json(err);
   };
 });
-// router.get('/search', async (req, res) => {
-//   zipcode = (req.params.zip);
-//   try {
-//     const userData = await User.findAll({
-//       attributes: {
-//         exclude: ['password']
-//       }
-//     })
-//     const growerlist = [];
-//     for(var i = 0;i<userData.length; i++){
-//       let zip = userData[i].location;
-//       let zipCodeDistance = zipCodeData.zipCodeDistance(`${zip}`, zipcode,'M');
-//       if (zipCodeDistance <50){
-//         growerlist.push(userData[i]);
-//       }
-//     }
-//     console.log(growerlist);
-
-//     const growerlist2 = growerlist.get({ plain: true });
-
-//     res.render('search', {
-//       ...growerlist2,
-//       logged_in: true
-//     });
-
-//     if (!userData) {
-//       res.status(404).json({ message: 'No grower within radius!' });
-//       return;
-//     }
-//   } catch (err) {
-//     res.status(500).json(err);
-//   };
-// });
 module.exports = router;
