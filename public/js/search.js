@@ -1,10 +1,12 @@
 const searchFormHandler = async (event) => {
     event.preventDefault();
-    const zipcode = document.querySelector('#searchbar').value.trim();
+    const zip1 = document.querySelector('#searchbar').value.trim();
+    const zip2 = document.querySelector('#growerSearchbar').value.trim();
+    
     setTimeout(() => {
-        document.location.replace(`/search`);
+        document.location.replace(`/search/:${zip1}/:${zip2}`);
     }, 1000);
-    const response = await fetch('/search', {
+    const response = await fetch(`/search/:${zip1}/:${zip2}`, {
         method: 'POST',
         body:''
     })
